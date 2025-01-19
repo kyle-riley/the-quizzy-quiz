@@ -1,8 +1,10 @@
 // Variables
 var score = 0;
+var currentQ = 0;
 
 // Constants
 const scoreText = document.querySelector("#scoreText");
+const questions = document.querySelectorAll(".q-container");
 
 // Check answer function
 function checkAnswer(question, result) {
@@ -12,13 +14,15 @@ function checkAnswer(question, result) {
   qResult.style.display = "block";
 
   if (answer) {
-    document.querySelector("#" + question).diabled = true;
+    document.querySelector("#" + question).disabled = true;
     if (answer.value === "correct") {
       qResult.innerText = "Correct";
       score += 1;
       scoreText.innerText = `Score: ${score}`;
+      nextQ();
     } else {
       qResult.innerText = "Incorrect";
+      nextQ();
     }
   } else {
     qResult.innerText = "Please select an answer";
@@ -26,5 +30,13 @@ function checkAnswer(question, result) {
 }
 
 // Display first question
+questions[0].style.display = "block";
 
 // Next question function
+function nextQ() {
+  if (currentQ < questions.length - 1) {
+    questions[currentQ].style.display = "none";
+    currentQ++;
+    questions[currentQ].style.display = "block";
+  }
+}
