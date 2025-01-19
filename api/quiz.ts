@@ -8,15 +8,16 @@ const groq = createOpenAI({
 });
 
 export async function POST(req: Request) {
-  const { subject } = await req.json();
+  const { subject, questions, answers } = await req.json();
   if (!subject) return new Response("subject is required", { status: 400 });
 
   const { text } = await generateText({
     temperature: 0.9,
-    model: groq("llama-3.3-70b-versatile"),
+    model: groq("gemma2-9b-it", { structuredOutputs: true }),
+    maxSteps: 10,
     prompt: `
-      Create a multi-choice quiz for ${subject} with 5 questions.
-      Each question should have 4 answer options, and mark the correct answer,
+      Create a multi-choice quiz for ${subject} with ${questions} questions.
+      Each question should have ${answers} answer options, and mark the correct answer,
       return only the JSON and nothing else. Format the output as JSON:
 
       [
