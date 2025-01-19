@@ -1,11 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Quizzy Quiz</title>
-</head>
-<body>
-    <h1>The Quizzy Quiz</h1>
-</body>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="default.css" />
+    <title>The videogame quiz</title>
+  </head>
+  <body>
+    <header class="header">
+      <span class="sitename jersey-15-regular">The videogame quiz</span>
+      <span id="scoreText" class="sitename">Score: 0</span>
+    </header>
+    <main>
+      <div class="q-container">
+        <h1 class="jersey-15-regular">Question 1</h1>
+        <h2>
+          Which videogame character is pink and can copy special abilities?
+        </h2>
+
+        <input type="radio" name="q1" value="correct" id="q1a1" />
+        <label for="q1a1">Kirby</label><br />
+
+        <input type="radio" name="q1" value="" id="q1a2" />
+        <label for="q1a2">Birdo</label><br />
+
+        <input type="radio" name="q1" value="" id="q1a3" />
+        <label for="q1a3">Pinkie Pie</label><br />
+
+        <div class="result" id="result1"></div>
+        <button id="q1" onclick="checkAnswer('q1', '#result1')">
+          Check Answer
+        </button>
+      </div>
+
+      <div class="q-container">
+        <h1 class="jersey-15-regular">Question 2</h1>
+        <h2>What is the final boss in Minecraft?</h2>
+
+        <input type="radio" name="q2" value="" id="q2a1" />
+        <label for="q2a1">The Wither</label><br />
+
+        <input type="radio" name="q2" value="correct" id="q2a2" />
+        <label for="q2a2">The Ender Dragon</label><br />
+
+        <input type="radio" name="q2" value="" id="q2a3" />
+        <label for="q2a3">The Warden</label><br />
+
+        <div class="result" id="result2"></div>
+        <button id="q2" onclick="checkAnswer('q2', '#result2')">
+          Check Answer
+        </button>
+      </div>
+
+      <div class="q-container">
+        <h1 class="jersey-15-regular">Question 3</h1>
+        <h2>What does ROBLOX stand for?</h2>
+
+        <input type="radio" name="q3" value="correct" id="q3a1" />
+        <label for="q3a1">Robots and Blocks</label><br />
+
+        <input type="radio" name="q3" value="" id="q3a2" />
+        <label for="q3a2">Rob Blocks</label><br />
+
+        <input type="radio" name="q3" value="" id="q3a3" />
+        <label for="q3a3">Powering Imagination</label><br />
+
+        <div class="result" id="result3"></div>
+        <button id="q3" onclick="checkAnswer('q3', '#result3')">
+          Check Answer
+        </button>
+      </div>
+    </main>
+  </body>
+  <script src="scripts.js"></script>
 </html>
